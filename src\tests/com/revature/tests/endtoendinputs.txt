@@ -1,0 +1,32 @@
+register
+Employee
+Jordan Employee
+add car
+mustang
+add car
+toyota
+add car
+suburban
+view car lot
+sign out
+register
+Customer
+Flores Customer
+make offer
+toyota
+3000.55
+36
+sign out
+login
+Employee
+Jordan Employee
+view all payments
+mustang
+view all payments
+toyota
+accept offer
+toyota
+Flores Customer
+view all payments
+toyota
+exit

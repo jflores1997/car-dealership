@@ -1,0 +1,36 @@
+register
+customer
+Jordan Customer
+make offer
+honda
+1500.99
+12
+make offer
+prius
+2000.01
+24
+sign out
+register
+customer
+Laun Customer
+make offer
+honda
+1500.99
+12
+sign out
+register
+employee
+Flores Employee
+view all payments
+honda
+accept offer
+honda
+Jordan Customer
+remove offer
+prius
+Jordan Customer
+view all payments
+honda
+view all payments
+prius
+exit
