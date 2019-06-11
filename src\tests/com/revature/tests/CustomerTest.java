@@ -12,11 +12,14 @@ import com.revature.pojo.Car;
 import com.revature.pojo.Customer;
 import com.revature.pojo.DealershipSys;
 import com.revature.service.CustomerService;
+import com.revature.util.LoggerUtil;
 
 public class CustomerTest {
 
 	@Test
 	public void testMakeOffer() {
+		LoggerUtil.debug("=========== Test Customer Make Offer ===========");
+		
 		List<Car> carLot = new ArrayList<Car>();
 		carLot.add(new Car("honda"));
 		carLot.add(new Car("subaru"));
@@ -41,7 +44,7 @@ public class CustomerTest {
 		Scanner scanner = new Scanner(input);
 		customerService.userMainPage(scanner);
 		
-		assertEquals((double) 1500.99, system.getCar("honda").getPendingOffer("jordan").getTotalPrice(), 0.001);
+		assertEquals(1500.99, system.getCar("honda").getPendingOffer("jordan").getTotalPrice(), 0.001);
 		assertEquals(false, system.getCar("honda").getPendingOffer("jordan").isAccepted());
 	}
 

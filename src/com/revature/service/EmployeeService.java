@@ -132,6 +132,10 @@ public class EmployeeService implements UserService {
 	}
 	
 	public void viewAllPaymentsService(Scanner scanner) {
+		if (system.getCarLotSize() == 0) {
+			SystemScreen.displayCarLotEmpty();
+		}
+		
 		StringBuilder displayCars = new StringBuilder();
 		for (String carName : system.getCarLot().keySet()) {
 			displayCars.append(carName + "\n");

@@ -112,14 +112,22 @@ public class UserScreen implements Screen {
 	public static void displayViewMyCars(String name, List<String> pendingCarNames, List<String> acceptedCarNames) {
 		StringBuilder display = new StringBuilder(name + VIEW_MY_CARS_OPTIONS);
 		
-		display.append("Pending Offers:\n");
-		for (String carName : pendingCarNames) {
-			display.append(carName + "\n");
+		if (pendingCarNames.isEmpty()) {
+			display.append("You have no Pending Offers\n");
+		} else {
+			display.append("Pending Offers:\n");
+			for (String carName : pendingCarNames) {
+				display.append(carName + "\n");
+			}
 		}
-		
-		display.append("Owned Cars:\n");
-		for (String carName : acceptedCarNames) {
-			display.append(carName + "\n");
+			
+		if (acceptedCarNames.isEmpty()) {
+			display.append("You have no Accepted Offers\n");
+		} else {
+			display.append("Owned Cars:\n");
+			for (String carName : acceptedCarNames) {
+				display.append(carName + "\n");
+			}
 		}
 		LoggerUtil.trace(display.toString());
 		

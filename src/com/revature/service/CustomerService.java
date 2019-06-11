@@ -71,6 +71,7 @@ public class CustomerService implements UserService {
 
 	@Override
 	public void viewCarLot() {
+		system.showCarLot();
 	}
 	
 	private void makeOfferService(Scanner scanner) {
@@ -102,7 +103,7 @@ public class CustomerService implements UserService {
 				pendingCarNames.add(car.getName());
 			}
 		}
-		
+				
 		UserScreen.displayViewMyCars(user.getUsername(), pendingCarNames, acceptedCarNames);
 		String input = scanner.nextLine().strip();
 		System.out.println(input);
@@ -118,11 +119,9 @@ public class CustomerService implements UserService {
 				UserScreen.displayOffer(input, offer);
 			} else {
 				SystemScreen.displayCarNotFound(input);
-				viewUserCarsService(scanner);
 			}
 		} else {
 			SystemScreen.displayCarNotFound(input);
-			viewUserCarsService(scanner);
 		}
 	}
 	

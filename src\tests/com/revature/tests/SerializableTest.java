@@ -14,6 +14,7 @@ import com.revature.dao.SystemDAO;
 import com.revature.driver.CarDealershipDriver;
 import com.revature.pojo.Car;
 import com.revature.pojo.DealershipSys;
+import com.revature.util.LoggerUtil;
 
 public class SerializableTest {
 
@@ -21,6 +22,8 @@ public class SerializableTest {
 	
 	@Test
 	public void testSerializeBasic() {
+		LoggerUtil.debug("=========== Test Serialize Basic ===========");
+		
 		List<Car> carLot = new ArrayList<Car>();
 		carLot.add(new Car("honda"));
 		carLot.add(new Car("subaru"));
@@ -37,6 +40,8 @@ public class SerializableTest {
 	
 	@Test
 	public void testEndToEnd() throws Exception {
+		LoggerUtil.debug("=========== Test End-To-End Serialization ===========");
+		
 		URL url = this.getClass().getResource("endtoendinputs.txt");
 		File file = new File(url.getFile());
 		Scanner scanner = new Scanner(file);

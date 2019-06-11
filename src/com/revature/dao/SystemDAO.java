@@ -8,6 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import com.revature.pojo.DealershipSys;
+import com.revature.util.LoggerUtil;
 
 public class SystemDAO {
 
@@ -19,6 +20,7 @@ public class SystemDAO {
 			foo = new FileOutputStream(fileName);
 			oos = new ObjectOutputStream(foo);
 			oos.writeObject(system);
+			LoggerUtil.info("Saving system to " + fileName);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -46,9 +48,11 @@ public class SystemDAO {
 				ObjectInputStream ois = new ObjectInputStream(fis);) {
 			
 			ret = (DealershipSys) ois.readObject();
+			LoggerUtil.info("Loading system from " + fileName);
 			
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			LoggerUtil.warn(fileName + " not found. Loading new DealershipSys instance.");
+			ret = new DealershipSys();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

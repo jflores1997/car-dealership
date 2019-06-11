@@ -15,12 +15,17 @@ import com.revature.pojo.Car;
 import com.revature.pojo.DealershipSys;
 import com.revature.pojo.Employee;
 import com.revature.service.EmployeeService;
+import com.revature.util.LoggerUtil;
 
 public class EmployeeTest {
+	
+	private static final String TEST_FILENAME = "testSystemFile.dat";
 
 	/* Adds two cars into system */
 	@Test
 	public void testAddCar() {
+		LoggerUtil.debug("=========== Test Employee Add Car ===========");
+		
 		DealershipSys system = new DealershipSys();
 		Employee employee = new Employee("jordan");
 		EmployeeService employeeService = new EmployeeService(employee, system);
@@ -49,6 +54,8 @@ public class EmployeeTest {
 
 	@Test
 	public void testRemoveCar() {
+		LoggerUtil.debug("=========== Test Employee Remove Car ===========");
+		
 		List<Car> carLot = new ArrayList<Car>();
 		carLot.add(new Car("honda"));
 		carLot.add(new Car("subaru"));
@@ -83,6 +90,8 @@ public class EmployeeTest {
 	
 	@Test
 	public void testRegisterEmployee() {
+		LoggerUtil.debug("=========== Test Register Employee ===========");
+		
 		DealershipSys system = new DealershipSys();
 		
 		String input = "register\n"
@@ -95,11 +104,13 @@ public class EmployeeTest {
 				+ "exit";
 		
 		Scanner scanner = new Scanner(input);
-		CarDealershipDriver.run(system, scanner, "");
+		CarDealershipDriver.run(system, scanner, TEST_FILENAME);
 	}
 	
 	@Test
 	public void testEmployeeOffer() throws Exception {
+		LoggerUtil.debug("=========== Test Employee Accept Offer ===========");
+		
 		List<Car> carLot = new ArrayList<Car>();
 		carLot.add(new Car("honda"));
 		carLot.add(new Car("subaru"));
@@ -111,6 +122,6 @@ public class EmployeeTest {
 		File file = new File(url.getFile());
 		
 		Scanner scanner = new Scanner(file);
-		CarDealershipDriver.run(system, scanner, "");
+		CarDealershipDriver.run(system, scanner, TEST_FILENAME);
 	}
 }
